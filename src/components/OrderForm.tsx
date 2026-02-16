@@ -180,16 +180,17 @@ export default function OrderForm({ onSubmit, isSubmitting }: OrderFormProps) {
         <label className={styles.quantityLabel}>
           الكمية المطلوبة من كل منتج <span className="text-red-500">*</span>
         </label>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className={styles.productCard}>
             <img
-              src="/straight.jpg"
-              alt="إسورة مستقيمة"
+              src="/orzi-aura.jpg"
+              alt="Aura - إسورة مستقيمة"
               className={styles.productImage}
             />
-            <p className={styles.productName}>Aura</p>
+            <p className={styles.productName}>AURA</p>
+            <p className={styles.productPrice}>٣٦٠ جنيه</p>
             <div className="flex items-center justify-center gap-2">
-              <label htmlFor="straightQty" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.875rem' }}>
+              <label htmlFor="straightQty" className={styles.qtyLabel}>
                 الكمية:
               </label>
               <input
@@ -206,13 +207,14 @@ export default function OrderForm({ onSubmit, isSubmitting }: OrderFormProps) {
 
           <div className={styles.productCard}>
             <img
-              src="/curved.jpg"
-              alt="إسورة منحنية"
+              src="/orzi-harmonia.jpg"
+              alt="Harmonia - إسورة منحنية"
               className={styles.productImage}
             />
-            <p className={styles.productName}>Harmonia</p>
+            <p className={styles.productName}>HARMONIA</p>
+            <p className={styles.productPrice}>٣٦٠ جنيه</p>
             <div className="flex items-center justify-center gap-2">
-              <label htmlFor="curvedQty" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.875rem' }}>
+              <label htmlFor="curvedQty" className={styles.qtyLabel}>
                 الكمية:
               </label>
               <input
@@ -229,14 +231,15 @@ export default function OrderForm({ onSubmit, isSubmitting }: OrderFormProps) {
 
           <div className={styles.productCard}>
             <img
-              src="/curvedgold.jpg"
-              alt="إسورة منحنية ذهبي"
+              src="/orzi-sophia.jpg"
+              alt="Sophia - إسورة منحنية ذهبي"
               className={styles.productImage}
             />
-            <p className={styles.productName}>Sophia</p>
+            <p className={styles.productName}>SOPHIA</p>
             <p className={styles.productLabel}>حصري للنساء</p>
+            <p className={styles.productPrice}>٣٦٠ جنيه</p>
             <div className="flex items-center justify-center gap-2">
-              <label htmlFor="curvedGoldQty" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.875rem' }}>
+              <label htmlFor="curvedGoldQty" className={styles.qtyLabel}>
                 الكمية:
               </label>
               <input

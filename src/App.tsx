@@ -46,7 +46,10 @@ function App() {
   if (currentPage === 'bracelets') {
     return (
       <>
-        <BraceletsLandingPage onOrderNow={() => setCurrentPage('purchase')} />
+        <BraceletsLandingPage
+          onOrderNow={() => setCurrentPage('purchase')}
+          onBack={() => setCurrentPage('home')}
+        />
         <Footer />
       </>
     );

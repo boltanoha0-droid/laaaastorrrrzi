@@ -14,6 +14,7 @@ export default function CollectionTile({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const hasSlider = collection.images && collection.images.length > 1;
   const images = collection.images || [collection.image];
+  const isHeritageBracelets = collection.id === 'bracelets';
 
   useEffect(() => {
     if (!hasSlider) return;
@@ -56,8 +57,16 @@ export default function CollectionTile({
 
   return (
     <div
-      className="group relative h-80 md:h-96 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 transform hover:scale-105"
-      style={{ boxShadow: '0 8px 24px rgba(0, 0, 0, 0.06)' }}
+      className={`group relative rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ${
+        isHeritageBracelets
+          ? 'h-96 md:h-[28rem] hover:scale-[1.02] hover:-translate-y-1.5'
+          : 'h-80 md:h-96 hover:scale-105'
+      }`}
+      style={isHeritageBracelets ? {
+        boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
+        border: '1px solid rgba(231, 221, 204, 0.4)',
+        transition: 'all 0.35s ease'
+      } : { boxShadow: '0 8px 24px rgba(0, 0, 0, 0.06)' }}
       onClick={onActionClick}
     >
       {images.map((img, index) => (
@@ -109,6 +118,12 @@ export default function CollectionTile({
       />
 
       <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+        {isHeritageBracelets && (
+          <div className="absolute top-4 left-4 bg-[#e7ddcc] text-[#243247] text-xs font-semibold px-4 py-1.5 rounded-full tracking-wide">
+            القطعة الأساسية
+          </div>
+        )}
+
         <div className="flex items-center gap-3 mb-4 justify-end">
           <span
             className={`${config.bgColor} text-white text-xs font-bold px-3 py-1 rounded-full`}
@@ -117,7 +132,9 @@ export default function CollectionTile({
           </span>
         </div>
 
-        <h3 className="text-3xl md:text-4xl font-bold mb-2 product-name">{collection.name}</h3>
+        <h3 className={`font-bold mb-2 product-name ${
+          isHeritageBracelets ? 'text-4xl md:text-5xl' : 'text-3xl md:text-4xl'
+        }`}>{collection.name}</h3>
         <p className="text-sm text-gray-200 mb-6 line-clamp-2 text-center">
           {collection.descriptionAr}
         </p>

@@ -9,6 +9,12 @@ interface CollectionGridProps {
 export default function CollectionGrid({
   onCollectionSelect,
 }: CollectionGridProps) {
+  const sortedCollections = [...collections].sort((a, b) => {
+    if (a.id === 'bracelets') return -1;
+    if (b.id === 'bracelets') return 1;
+    return 0;
+  });
+
   return (
     <section className="py-16 md:py-24 bg-[#e7ddcc] relative">
       <DecorativeIcon icon="watch" position={{ top: '10%', right: '5%' }} delay={0.5} />
@@ -25,7 +31,7 @@ export default function CollectionGrid({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {collections.map((collection) => (
+          {sortedCollections.map((collection) => (
             <CollectionTile
               key={collection.id}
               collection={collection}

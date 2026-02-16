@@ -1,18 +1,30 @@
+import { ArrowRight } from 'lucide-react';
 import DecorativeIcon from '../components/DecorativeIcons';
 
 interface BraceletsLandingPageProps {
   onOrderNow: () => void;
+  onBack?: () => void;
 }
 
-export default function BraceletsLandingPage({ onOrderNow }: BraceletsLandingPageProps) {
+export default function BraceletsLandingPage({ onOrderNow, onBack }: BraceletsLandingPageProps) {
   return (
     <div className="min-h-screen bg-white" dir="rtl">
+      {onBack && (
+        <button
+          onClick={onBack}
+          className="fixed top-8 right-8 z-50 flex items-center gap-2 text-[#243247] bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-[#e7ddcc] transition-all duration-300 shadow-lg"
+        >
+          <ArrowRight size={20} />
+          <span className="font-semibold">العودة للرئيسية</span>
+        </button>
+      )}
+
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "linear-gradient(135deg, rgba(36, 50, 71, 0.7) 0%, rgba(36, 50, 71, 0.5) 100%), url('/orzi-aura.jpg')",
+              "linear-gradient(135deg, rgba(36, 50, 71, 0.7) 0%, rgba(36, 50, 71, 0.5) 100%), url('/bracelets-header.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#e7ddcc]" />
@@ -141,43 +153,44 @@ export default function BraceletsLandingPage({ onOrderNow }: BraceletsLandingPag
         </div>
       </section>
 
-      <section className="py-20 md:py-32 bg-[#e7ddcc] relative">
+      <section className="py-24 md:py-36 relative" style={{ background: 'linear-gradient(to bottom, #e7ddcc 0%, rgba(231, 221, 204, 0.6) 100%)' }}>
         <DecorativeIcon icon="star" position={{ bottom: '15%', left: '10%' }} delay={3} />
 
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-[#243247] mb-6">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold text-[#243247] mb-6">
               .لماذا ORZI؟
             </h2>
+            <div className="w-24 h-1 bg-[#243247] mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg">
-              <div className="w-16 h-16 bg-[#243247] rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-3xl text-[#e7ddcc]">١</span>
+          <div className="grid md:grid-cols-3 gap-10">
+            <div className="text-center p-10 bg-white/80 backdrop-blur-sm rounded-3xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2" style={{ border: '1px solid rgba(36, 50, 71, 0.08)' }}>
+              <div className="w-20 h-20 bg-gradient-to-br from-[#243247] to-[#1a2a3a] rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg">
+                <span className="text-4xl text-[#e7ddcc] font-bold">١</span>
               </div>
-              <h3 className="text-2xl font-bold text-[#243247] mb-4">جودة خالدة</h3>
-              <p className="text-gray-700 leading-relaxed">
+              <h3 className="text-2xl font-bold text-[#243247] mb-5">جودة خالدة</h3>
+              <p className="text-gray-600 leading-loose text-base">
                 نستخدم أجود أنواع النحاس مع طلاء نيكل وذهب عالي الجودة، مقاوم للصدأ والتغير، لقطع تدوم معك طويلاً
               </p>
             </div>
 
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg">
-              <div className="w-16 h-16 bg-[#243247] rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-3xl text-[#e7ddcc]">٢</span>
+            <div className="text-center p-10 bg-white/80 backdrop-blur-sm rounded-3xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2" style={{ border: '1px solid rgba(36, 50, 71, 0.08)' }}>
+              <div className="w-20 h-20 bg-gradient-to-br from-[#243247] to-[#1a2a3a] rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg">
+                <span className="text-4xl text-[#e7ddcc] font-bold">٢</span>
               </div>
-              <h3 className="text-2xl font-bold text-[#243247] mb-4">تصميم متفرد</h3>
-              <p className="text-gray-700 leading-relaxed">
+              <h3 className="text-2xl font-bold text-[#243247] mb-5">تصميم متفرد</h3>
+              <p className="text-gray-600 leading-loose text-base">
                 كل قطعة مستوحاة من التراث المصري العريق، مع لمسة عصرية تناسب أسلوبك وتعكس شخصيتك
               </p>
             </div>
 
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg">
-              <div className="w-16 h-16 bg-[#243247] rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-3xl text-[#e7ddcc]">٣</span>
+            <div className="text-center p-10 bg-white/80 backdrop-blur-sm rounded-3xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2" style={{ border: '1px solid rgba(36, 50, 71, 0.08)' }}>
+              <div className="w-20 h-20 bg-gradient-to-br from-[#243247] to-[#1a2a3a] rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg">
+                <span className="text-4xl text-[#e7ddcc] font-bold">٣</span>
               </div>
-              <h3 className="text-2xl font-bold text-[#243247] mb-4">راحة مطلقة</h3>
-              <p className="text-gray-700 leading-relaxed">
+              <h3 className="text-2xl font-bold text-[#243247] mb-5">راحة مطلقة</h3>
+              <p className="text-gray-600 leading-loose text-base">
                 تصميم قابل للتعديل يناسب جميع أحجام المعاصم، مع خامات مريحة للارتداء اليومي دون أي إزعاج
               </p>
             </div>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import OrderForm from '../components/OrderForm';
 import SuccessModal from '../components/SuccessModal';
 import { OrderFormData } from '../types/form';
-import { X } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface PurchasePageProps {
   onBack: () => void;
@@ -59,29 +59,27 @@ export default function PurchasePage({ onBack }: PurchasePageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#e7ddcc] py-12 px-4" dir="rtl">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen py-16 px-4" dir="rtl" style={{ background: 'linear-gradient(135deg, #e7ddcc 0%, rgba(231, 221, 204, 0.8) 100%)' }}>
+      <div className="max-w-3xl mx-auto">
         <button
           onClick={onBack}
-          className="mb-8 flex items-center gap-2 text-[#243247] hover:underline"
+          className="mb-8 flex items-center gap-2 text-[#243247] bg-white/70 backdrop-blur-sm px-4 py-2.5 rounded-lg hover:bg-white transition-all duration-300 shadow-sm hover:shadow-md"
         >
-          <X size={20} />
-          العودة
+          <ArrowRight size={20} />
+          <span className="font-semibold">العودة</span>
         </button>
 
-        <div
-          className="rounded-2xl p-8 md:p-12"
-          style={{
-            background: 'rgba(255, 255, 255, 0.08)',
-            backdropFilter: 'blur(18px)',
-            WebkitBackdropFilter: 'blur(18px)',
-            border: '1px solid rgba(255,255,255,0.12)',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
-          }}
-        >
-          <h1 className="text-4xl md:text-5xl font-bold text-[#243247] mb-12 text-center">
-            أكمل طلبك
-          </h1>
+        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl" style={{ border: '1px solid rgba(36, 50, 71, 0.06)' }}>
+          <div className="text-center mb-10">
+            <h1 className="text-4xl md:text-5xl font-bold text-[#243247] mb-3">
+              أكمل طلبك
+            </h1>
+            <div className="w-20 h-1 bg-[#243247] mx-auto rounded-full mb-4"></div>
+            <p className="text-gray-600 text-lg">
+              نحن متحمسون لتقديم قطعتك الفريدة إليك
+            </p>
+          </div>
+
           <OrderForm onSubmit={handleSubmit} isSubmitting={isSubmitting} />
         </div>
       </div>
