@@ -94,7 +94,7 @@ export default function BraceletsLandingPage({ onOrderNow, onBack }: BraceletsLa
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div>
               <img
-                src="/orzi-harmonia.jpg"
+                src="/orzi-harmonia1.jpg"
                 alt="HARMONIA Bracelet"
                 className="w-full rounded-2xl shadow-2xl"
               />
